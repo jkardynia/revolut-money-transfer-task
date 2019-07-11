@@ -5,7 +5,9 @@ import org.javalite.activejdbc.Model;
 public class Account extends Model {
 
     static{
-        validateNumericalityOf("balance").greaterThan(0);
+        validateNumericalityOf("balance")
+                .greaterThan(0)
+                .message("Balance cannot be negative");
     }
 
     public String getOwner() {

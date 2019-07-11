@@ -16,12 +16,24 @@ import static com.revolut.Configuration.db;
 @Slf4j
 public class Application {
 
+    private final Javalin app;
+
     public static void main(String[] args) {
+        new Application(8080);
+    }
+
+    public Application(int port){
         Javalin app = Javalin.create();
         configureEndpoints(app);
         addExceptionHandlers(app);
         initDb();
-        app.start(8080);
+        app.start(port);
+
+        this.app = app;
+    }
+
+    public void stop(){
+        app.stop();
     }
 
     private static void configureEndpoints(Javalin app){
