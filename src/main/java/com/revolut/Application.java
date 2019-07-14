@@ -64,7 +64,7 @@ public class Application {
         });
     }
 
-    private static void initDb(){
+    private static void initDb(){ // for testing as there is no adding account feature
         db().withDb(() -> {
             Account.deleteAll();
             Account acc1 = new Account();

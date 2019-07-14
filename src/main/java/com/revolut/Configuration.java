@@ -6,7 +6,7 @@ import com.revolut.transfer.service.TransferService;
 import org.javalite.activejdbc.DB;
 
 
-public class Configuration {
+public class Configuration { // todo replace with some DI framework for example Google Guice
     private static DB db = new DB();
     private static final AccountRepository accountRepository = new AccountRepository(db);
     private static final TransferService transferService = new TransferService(accountRepository);
